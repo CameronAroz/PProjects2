@@ -5,6 +5,7 @@ attack_list = []
 identified_target_list = []
 combined_filename = "new_encrypted_passwords.txt"
 attack_filename = "big_guy.txt"
+solutions = "solutions.txt"
 
 # Reading the possible encrypted passwords
 read_this_file = open(combined_filename, "r")
@@ -44,7 +45,7 @@ for target in identified_target_list:
     for word in attack_list:
         (attack_word_plaintext, attack_word_encrypted) = word
         if target_password == attack_word_encrypted:
-            print "Target identified! user:{}\tpassword:{}".format(user, attack_word_plaintext)
+			print "Target identified! user:{}\tpassword:{}".format(user, attack_word_plaintext)
 			write_cracked_passwords.write("Target identified! user:{}\tpassword:{} \n".format(user,attack_word_plaintext))
 			
 write_cracked_passwords.close()
