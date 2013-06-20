@@ -44,17 +44,17 @@ def main():
     movies_i_like = [
         {'name': 'Iron Man',
          'star': 'Robert Downey Jr'
-         'rating': 58},
+         'rating': '58'},
 
         {'name': 'Life of Pi'
          'rating': '65'},
 
         {'name': 'Christian Bale',
          'star': 'Batman',
-         'rating': 78},
+         'rating': '78'},
 
         {'name': 'The Great Gatsby',
-         'Rating': 29,
+         'Rating': '29',
          'star': 'Leonardo Di Caprio',
          'costar': 'Tobey Maguire'}
     ]
