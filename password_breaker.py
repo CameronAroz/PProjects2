@@ -3,23 +3,22 @@ And now the password dictionary attack begins!
 """
 attack_list = []
 identified_target_list = []
-combined_filename = "my_new_passwords_combined.txt"
-attack_filename = "./targets/little_guy.txt"
+combined_filename = "new_encrypted_passwords.txt"
+attack_filename = "big_guy.txt"
 
-# tricky!  What is different? What does it mean?
-read_this_file = open(combined_filename)
+# Reading the possible encrypted passwords
+read_this_file = open(combined_filename, "r")
+# Writing the cracked passwords to a solutions file
+write_cracked_passwords = open(solutions, "w")
 
 print "\nInitializing the attack list:"
 
-# New hotness: .split() & .rstrip()
-# What are we doing?!
+# Adding words from the encrypted passwords list to the attack list
 for line in read_this_file:
-    (plaintext, encrypted) = line.split(";")
+    (plaintext, encrypted) = line.split(":")
     print "plaintext: {}\t encrypted: {} added to attack list".format(plaintext, encrypted.rstrip())
     attack_list.append((plaintext, encrypted.rstrip()))
 read_this_file.close()
-
-# At this point can you tell me what the attack list looks like?
 
 
 # Identify targets  
@@ -46,4 +45,6 @@ for target in identified_target_list:
         (attack_word_plaintext, attack_word_encrypted) = word
         if target_password == attack_word_encrypted:
             print "Target identified! user:{}\tpassword:{}".format(user, attack_word_plaintext)
-
+			write_cracked_passwords.write("Target identified! user:{}\tpassword:{} \n".format(user,attack_word_plaintext))
+			
+write_cracked_passwords.close()
